@@ -31,3 +31,15 @@
 .cv-button:hover {
   background-color: #16306b;
 }
+
+a {
+  color: #0066cc;
+  text-decoration: underline;
+}
+
+@media print {
+  a {
+    color: #000;
+    text-decoration: underline;
+  }
+}
