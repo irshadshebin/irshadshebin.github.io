@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Irshad Shebin | Practical Excel & Accounting Resources</title>
+
+  <meta
+    name="description"
+    content="Practical Excel, accounting, finance, and business-software learning resources for students, job seekers, and working professionals."
+  >
+
+  <style>
+    :root {
+      --bg: #f7f8fa;
+      --surface: #ffffff;
+      --text: #111827;
+      --muted: #667085;
+      --border: #e5e7eb;
+      --accent: #146c43;
+      --accent-dark: #0f5132;
+      --soft: #edf7f1;
+      --dark: #101828;
+      --radius: 18px;
+      --max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(100% - 32px, var(--max-width));
+      margin-inline: auto;
+    }
+
+    /* NAVIGATION */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(247, 248, 250, 0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(229, 231, 235, 0.8);
+    }
+
+    .nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      font-weight: 800;
+      font-size: 1.05rem;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .nav-button {
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: var(--dark);
+      color: white !important;
+      font-weight: 700;
+    }
+
+    /* HERO */
+
+    .hero {
+      padding: 84px 0 72px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      align-items: center;
+      gap: 64px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      border: 1px solid #d8e8df;
+      background: var(--soft);
+      color: var(--accent-dark);
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      font-size: clamp(2.6rem, 7vw, 5.2rem);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+      max-width: 760px;
+    }
+
+    .hero-text {
+      margin-top: 24px;
+      max-width: 650px;
+      font-size: 1.12rem;
+      color: var(--muted);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 21px;
+      border-radius: 12px;
+      font-weight: 800;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      background: var(--accent);
+      color: white;
+    }
+
+    .button-secondary {
+      background: white;
+      border: 1px solid var(--border);
+    }
+
+    /* PRODUCT VISUAL */
+
+    .product-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 14px;
+      box-shadow: 0 20px 60px rgba(16, 24, 40, 0.08);
+    }
+
+    .product-window {
+      overflow: hidden;
+      border-radius: 17px;
+      border: 1px solid var(--border);
+      background: white;
+    }
+
+    .window-top {
+      display: flex;
+      gap: 6px;
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--border);
+      background: #fafafa;
+    }
+
+    .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #d0d5dd;
+    }
+
+    .spreadsheet {
+      padding: 20px;
+    }
+
+    .spreadsheet-title {
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+
+    .sheet {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1fr;
+      border-left: 1px solid var(--border);
+      border-top: 1px solid var(--border);
+      font-size: 0.78rem;
+    }
+
+    .cell {
+      min-height: 38px;
+      padding: 8px;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+    }
+
+    .cell.head {
+      font-weight: 800;
+      background: #f2f4f7;
+    }
+
+    /* SECTIONS */
+
+    section {
+      padding: 76px 0;
+    }
+
+    .section-heading {
+      max-width: 700px;
+      margin-bottom: 34px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+    }
+
+    .section-heading p {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    /* PRODUCT */
+
+    .product-section {
+      background: white;
+      border-block: 1px solid var(--border);
+    }
+
+    .featured-product {
+      display: grid;
+      grid-template-columns: 1fr 0.7fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .product-label {
+      color: var(--accent);
+      font-weight: 800;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .product-title {
+      margin-top: 8px;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+    }
+
+    .product-subtitle {
+      margin-top: 10px;
+      color: var(--accent-dark);
+      font-weight: 700;
+    }
+
+    .product-description {
+      margin-top: 18px;
+      color: var(--muted);
+      max-width: 680px;
+    }
+
+    .check-list {
+      list-style: none;
+      margin-top: 24px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .check-list li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .check {
+      color: var(--accent);
+      font-weight: 900;
+    }
+
+    .product-box {
+      padding: 28px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--bg);
+    }
+
+    .product-box strong {
+      display: block;
+      font-size: 1.25rem;
+    }
+
+    .product-box p {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    /* CARDS */
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 26px;
+    }
+
+    .card-icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: var(--soft);
+      color: var(--accent-dark);
+      font-weight: 900;
+      margin-bottom: 18px;
+    }
+
+    .card h3 {
+      font-size: 1.05rem;
+    }
+
+    .card p {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    /* WHO IT'S FOR */
+
+    .audience {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 50px;
+      align-items: start;
+    }
+
+    .audience-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .audience-item {
+      padding: 17px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      font-weight: 700;
+    }
+
+    /* STEPS */
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .step {
+      padding: 24px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+
+    .step-number {
+      font-size: 0.8rem;
+      font-weight: 900;
+      color: var(--accent);
+    }
+
+    .step h3 {
+      margin-top: 10px;
+      font-size: 1rem;
+    }
+
+    .step p {
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    /* FUTURE */
+
+    .future {
+      background: var(--dark);
+      color: white;
+    }
+
+    .future .section-heading p {
+      color: #98a2b3;
+    }
+
+    .future-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .future-tag {
+      padding: 12px 16px;
+      border: 1px solid #344054;
+      border-radius: 999px;
+      color: #e4e7ec;
+      background: #1d2939;
+    }
+
+    /* ABOUT */
+
+    .about {
+      display: grid;
+      grid-template-columns: 0.7fr 1.3fr;
+      gap: 56px;
+      align-items: start;
+    }
+
+    .about-name {
+      font-size: 2rem;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+    }
+
+    .about p {
+      color: var(--muted);
+      max-width: 700px;
+    }
+
+    /* FAQ */
+
+    .faq {
+      max-width: 820px;
+    }
+
+    details {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px 20px;
+      margin-bottom: 10px;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 800;
+    }
+
+    details p {
+      margin-top: 12px;
+      color: var(--muted);
+    }
+
+    /* CONTACT */
+
+    .contact-box {
+      background: var(--soft);
+      border: 1px solid #d8e8df;
+      border-radius: 24px;
+      padding: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: white;
+      border-top: 1px solid var(--border);
+      padding: 30px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .copyright {
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .featured-product,
+      .audience,
+      .about {
+        grid-template-columns: 1fr;
+      }
+
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .steps {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero {
+        padding-top: 60px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: min(100% - 24px, var(--max-width));
+      }
+
+      .nav {
+        min-height: 62px;
+      }
+
+      .nav-links a:not(.nav-button) {
+        display: none;
+      }
+
+      section {
+        padding: 58px 0;
+      }
+
+      .hero {
+        padding: 52px 0 55px;
+      }
+
+      h1 {
+        font-size: 2.8rem;
+      }
+
+      .hero-text {
+        font-size: 1rem;
+      }
+
+      .cards,
+      .steps,
+      .audience-list {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-box {
+        padding: 26px;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .product-card {
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <header>
+    <div class="container nav">
+      <a href="#" class="brand">Irshad Shebin</a>
+
+      <nav class="nav-links">
+        <a href="#product">Product</a>
+        <a href="#resources">Resources</a>
+        <a href="#about">About</a>
+        <a href="#faq">FAQ</a>
+        <a href="#product" class="nav-button">Get the Pack</a>
+      </nav>
+    </div>
+  </header>
+
+
+  <!-- HERO -->
+  <main>
+
+    <section class="hero">
+      <div class="container hero-grid">
+
+        <div>
+          <div class="eyebrow">
+            Practical learning resources
+          </div>
+
+          <h1>
+            Build Practical Excel Skills Through Real Scenarios
+          </h1>
+
+          <p class="hero-text">
+            Practice Excel with realistic accounting and business problems
+            designed to develop practical, job-ready spreadsheet skills.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#product" class="button button-primary">
+              Get the Excel Practice Pack
+            </a>
+
+            <a href="#resources" class="button button-secondary">
+              Explore Resources
+            </a>
+          </div>
+        </div>
+
+
+        <!-- PRODUCT VISUAL -->
+        <div class="product-card">
+          <div class="product-window">
+
+            <div class="window-top">
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+
+            <div class="spreadsheet">
+
+              <div class="spreadsheet-title">
+                Practical Excel Exercise
+              </div>
+
+              <div class="sheet">
+
+                <div class="cell head">Account</div>
+                <div class="cell head">Amount</div>
+                <div class="cell head">Result</div>
+
+                <div class="cell">Sales</div>
+                <div class="cell">12,500</div>
+                <div class="cell">12,500</div>
+
+                <div class="cell">Expenses</div>
+                <div class="cell">4,250</div>
+                <div class="cell">4,250</div>
+
+                <div class="cell">Gross Profit</div>
+                <div class="cell">8,250</div>
+                <div class="cell">8,250</div>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- PRODUCT -->
+    <section id="product" class="product-section">
+
+      <div class="container">
+
+        <div class="featured-product">
+
+          <div>
+
+            <div class="product-label">
+              Featured digital product
+            </div>
+
+            <h2 class="product-title">
+              50 Practical Excel Exercises
+            </h2>
+
+            <p class="product-subtitle">
+              Real Accounting Scenarios • Structured Solutions
+            </p>
+
+            <p class="product-description">
+              A practical Excel practice pack designed around realistic
+              accounting and business scenarios. Strengthen your Excel
+              skills by solving practical exercises instead of only studying
+              formulas and theory.
+            </p>
+
+            <ul class="check-list">
+              <li>
+                <span class="check">✓</span>
+                <span>50 practical Excel exercises</span>
+              </li>
+
+              <li>
+                <span class="check">✓</span>
+                <span>Accounting and business-oriented scenarios</span>
+              </li>
+
+              <li>
+                <span class="check">✓</span>
+                <span>Structured solutions</span>
+              </li>
+
+              <li>
+                <span class="check">✓</span>
+                <span>Practical spreadsheet skills</span>
+              </li>
+
+              <li>
+                <span class="check">✓</span>
+                <span>Digital download</span>
+              </li>
+            </ul>
+
+            <div class="hero-actions">
+              <!-- Replace # with your Dodo Payments checkout URL -->
+              <a
+                href="#"
+                class="button button-primary"
+                id="buy-button"
+              >
+                Buy the Practice Pack
+              </a>
+            </div>
+
+          </div>
+
+
+          <div class="product-box">
+
+            <strong>Practice. Solve. Improve.</strong>
+
+            <p>
+              Work through realistic problems, compare your work with
+              structured solutions, and build practical confidence with Excel.
+            </p>
+
+            <br>
+
+            <strong>Digital Product</strong>
+
+            <p>
+              No physical product is shipped. Access is provided
+              electronically after successful purchase.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- WHAT YOU'LL PRACTICE -->
+    <section id="resources">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <h2>
+            What you'll practise
+          </h2>
+
+          <p>
+            The focus is on applying Excel to practical business and
+            accounting situations.
+          </p>
+
+        </div>
+
+
+        <div class="cards">
+
+          <article class="card">
+            <div class="card-icon">fx</div>
+
+            <h3>Excel Formulas</h3>
+
+            <p>
+              Build practical confidence applying spreadsheet formulas
+              to real scenarios.
+            </p>
+          </article>
+
+
+          <article class="card">
+            <div class="card-icon">Σ</div>
+
+            <h3>Conditional Calculations</h3>
+
+            <p>
+              Work with business situations that require logical and
+              condition-based calculations.
+            </p>
+          </article>
+
+
+          <article class="card">
+            <div class="card-icon">↔</div>
+
+            <h3>Lookup & Reference</h3>
+
+            <p>
+              Practise retrieving and working with information across
+              business datasets.
+            </p>
+          </article>
+
+
+          <article class="card">
+            <div class="card-icon">₹</div>
+
+            <h3>Accounting Calculations</h3>
+
+            <p>
+              Apply spreadsheet techniques to accounting-oriented
+              calculations and scenarios.
+            </p>
+          </article>
+
+
+          <article class="card">
+            <div class="card-icon">▦</div>
+
+            <h3>Business Data</h3>
+
+            <p>
+              Work with structured data and practical spreadsheet
+              problem-solving.
+            </p>
+          </article>
+
+
+          <article class="card">
+            <div class="card-icon">✓</div>
+
+            <h3>Practical Problem Solving</h3>
+
+            <p>
+              Learn by solving problems rather than relying only on
+              theory and memorisation.
+            </p>
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- WHO IT'S FOR -->
+    <section>
+
+      <div class="container audience">
+
+        <div class="section-heading">
+
+          <h2>
+            Built for practical learners.
+          </h2>
+
+          <p>
+            Designed for people who want to improve their spreadsheet skills
+            through realistic practice.
+          </p>
+
+        </div>
+
+
+        <div class="audience-list">
+
+          <div class="audience-item">
+            Accounting students
+          </div>
+
+          <div class="audience-item">
+            Commerce students
+          </div>
+
+          <div class="audience-item">
+            Excel learners
+          </div>
+
+          <div class="audience-item">
+            Job seekers
+          </div>
+
+          <div class="audience-item">
+            Junior accountants
+          </div>
+
+          <div class="audience-item">
+            Finance professionals
+          </div>
+
+          <div class="audience-item">
+            Business learners
+          </div>
+
+          <div class="audience-item">
+            Practical Excel users
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- HOW IT WORKS -->
+    <section>
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <h2>
+            How it works
+          </h2>
+
+          <p>
+            A simple practice-first learning process.
+          </p>
+
+        </div>
+
+
+        <div class="steps">
+
+          <div class="step">
+            <div class="step-number">STEP 01</div>
+            <h3>Choose the practice pack</h3>
+            <p>
+              Get the digital Excel practice resource.
+            </p>
+          </div>
+
+
+          <div class="step">
+            <div class="step-number">STEP 02</div>
+            <h3>Complete the exercises</h3>
+            <p>
+              Work through the practical accounting and business scenarios.
+            </p>
+          </div>
+
+
+          <div class="step">
+            <div class="step-number">STEP 03</div>
+            <h3>Check the solutions</h3>
+            <p>
+              Compare your work with the structured solutions.
+            </p>
+          </div>
+
+
+          <div class="step">
+            <div class="step-number">STEP 04</div>
+            <h3>Practise again</h3>
+            <p>
+              Repeat the exercises and strengthen your practical skills.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- FUTURE RESOURCES -->
+    <section class="future">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <h2>
+            More Practical Resources Coming Soon
+          </h2>
+
+          <p>
+            Future resources will expand into practical accounting,
+            finance, and business-software learning.
+          </p>
+
+        </div>
+
+
+        <div class="future-grid">
+
+          <span class="future-tag">Excel</span>
+          <span class="future-tag">Accounting</span>
+          <span class="future-tag">Tally Prime</span>
+          <span class="future-tag">Zoho Books</span>
+          <span class="future-tag">GST</span>
+          <span class="future-tag">Finance</span>
+          <span class="future-tag">Business Software</span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section id="about">
+
+      <div class="container about">
+
+        <div>
+          <div class="product-label">About</div>
+          <div class="about-name">Irshad Shebin</div>
+        </div>
+
+
+        <div>
+
+          <p>
+            I'm Irshad Shebin, and I create practical learning resources
+            focused on Excel, accounting, finance, and business software.
+            My goal is to make technical skills easier to learn through
+            practical examples and structured practice.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- FAQ -->
+    <section id="faq">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <h2>
+            Frequently asked questions
+          </h2>
+
+        </div>
+
+
+        <div class="faq">
+
+          <details>
+            <summary>What format is the product?</summary>
+            <p>
+              The product is a digital learning resource containing
+              practical Excel exercises and structured solutions.
+            </p>
+          </details>
+
+
+          <details>
+            <summary>Is this a digital product?</summary>
+            <p>
+              Yes. This is a digital product. No physical product is shipped.
+            </p>
+          </details>
+
+
+          <details>
+            <summary>How do I receive the product after purchase?</summary>
+            <p>
+              After successful payment, the product is delivered
+              electronically through the checkout and digital-delivery system.
+            </p>
+          </details>
+
+
+          <details>
+            <summary>Who is this suitable for?</summary>
+            <p>
+              It is suitable for students, Excel learners, job seekers,
+              junior accountants, finance professionals, and others who
+              want practical spreadsheet practice.
+            </p>
+          </details>
+
+
+          <details>
+            <summary>Can I access it worldwide?</summary>
+            <p>
+              The product is a digital resource and can be delivered
+              electronically to customers wherever the selected payment
+              and delivery service supports the transaction.
+            </p>
+          </details>
+
+
+          <details>
+            <summary>Is a physical product shipped?</summary>
+            <p>
+              No. This is a digital product and no physical shipment is required.
+            </p>
+          </details>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section>
+
+      <div class="container">
+
+        <div class="contact-box">
+
+          <div>
+
+            <h2>
+              Have a question?
+            </h2>
+
+            <p>
+              Get in touch or follow along for practical Excel and
+              accounting learning content.
+            </p>
+
+          </div>
+
+
+          <div class="hero-actions">
+
+            <a
+              href="mailto:irshadshbn7@gmail.com"
+              class="button button-primary"
+            >
+              Contact
+            </a>
+
+            <a
+              href="https://www.instagram.com/irshadshebin/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="button button-secondary"
+            >
+              Instagram
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <div class="container footer-inner">
+
+      <div class="copyright">
+        © <span id="year"></span> Irshad Shebin. All rights reserved.
+      </div>
+
+      <div class="footer-links">
+        <a href="#faq">FAQ</a>
+        <a href="#about">About</a>
+        <a href="mailto:irshadshbn7@gmail.com">Contact</a>
+        <a
+          href="https://www.instagram.com/irshadshebin/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Instagram
+        </a>
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    /*
+      DODO PAYMENT LINK
+
+      Replace the "#" in the Buy button with your actual
+      Dodo Payments checkout/payment-link URL.
+
+      Example:
+
+      document.getElementById("buy-button").href =
+        "YOUR-DODO-CHECKOUT-URL";
+    */
+  </script>
+
+</body>
+</html>
